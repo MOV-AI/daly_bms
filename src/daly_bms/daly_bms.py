@@ -28,7 +28,7 @@ class DalyBMS(RComponent):
         self._port = rospy.get_param('~serial_port', "/dev/ttyUSB_BMS")
 
     def ros_setup(self):
-        self._battery_status_pub = rospy.Publisher("~data", BatteryStatus, queue_size=10)
+        self._battery_status_pub = rospy.Publisher("data", BatteryStatus, queue_size=10)
         self._reading_timer = RepeatTimer(self._publish_state_timer, self.read)
 
         RComponent.ros_setup(self)
